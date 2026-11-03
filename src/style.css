@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --color-ink: #0f172a;
+  --color-muted: #475569;
+  --color-rule: #e2e8f0;
+  --color-brand: #1e40af;
+  --color-tint: #eff4ff;
+}
+
+@layer base {
+  html { @media (prefers-reduced-motion: no-preference) { scroll-behavior: smooth; } }
+  body { @apply bg-white font-sans text-ink antialiased; }
+  a { @apply text-brand underline-offset-4 hover:underline; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand; }
+  section[id] { scroll-margin-top: 1.5rem; }
+}
+
+.nav-link { @apply block rounded-md px-3 py-1.5 text-sm font-medium text-muted no-underline hover:bg-tint hover:text-brand hover:no-underline; }
+.nav-link[data-active="true"] { @apply bg-tint text-brand; }
+.row { @apply grid gap-1 border-t border-rule py-5 sm:grid-cols-[11rem_1fr] sm:gap-6; }
+.row:first-of-type { @apply border-t-0 pt-0; }
+.h2 { @apply mb-8 text-2xl font-semibold tracking-tight; }
+.pill { @apply rounded-md bg-tint px-2.5 py-1 text-sm text-brand; }
